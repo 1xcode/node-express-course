@@ -6,6 +6,11 @@ app.use(bodyParser.json());
 
 const mockUserData = [{ name: "Mark" }, { name: "Jill" }];
 
+const mockPostData = [
+  { id: 1, title: "Post 1", description: "Description 1" },
+  { id: 2, title: "Post 2", description: "Description 2" },
+];
+
 app.get("/users", function (req, res) {
   res.json({
     success: true,
@@ -13,6 +18,15 @@ app.get("/users", function (req, res) {
     users: mockUserData,
   });
 });
+
+app.get("/posts", function (req, res) {
+  res.json({
+    success: true,
+    message: "successfully got posts. Nice!",
+    users: mockPostData,
+  });
+});
+
 // colons are used as variables that be viewed in the params
 app.get("/users/:id", function (req, res) {
   console.log(req.params.id);
